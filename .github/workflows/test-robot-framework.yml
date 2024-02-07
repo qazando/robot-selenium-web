@@ -21,4 +21,5 @@ jobs:
 
     - name: Executar testes
       run: |
+        ls
         robot -d results teste2.robot
