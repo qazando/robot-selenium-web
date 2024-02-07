@@ -10,28 +10,29 @@ jobs:
     - name: Checkout do código
       uses: actions/checkout@v2
 
-    - name: Configurar Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
+    - name: Configurar ChromeDriver e Chrome
+      run: |
+        CHROMEDRIVER_VERSION=121.0.6167.85
+        CHROME_VERSION=121.0.6167.129
+        curl -o /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        unzip /tmp/chromedriver.zip -d $HOME
+        sudo mv $HOME/chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
+
+        curl -o /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i /tmp/chrome.deb
+        sudo apt-get install -f
+
+        # Definir versão específica do Chrome
+        sudo apt-get install -y google-chrome-stable=$CHROME_VERSION
 
     - name: Instalar dependências
       run: |
         pip install -r requirements.txt
 
-    - name: Configurar ChromeDriver
-      run: |
-        CHROMEDRIVER_VERSION=121.0.6167.85
-        curl -o /tmp/chromedriver.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip
-        ls
-        unzip /tmp/chromedriver-linux64.zip -d $HOME
-        sudo mv $HOME/chromedriver /usr/local/bin/chromedriver
-        sudo chmod +x /usr/local/bin/chromedriver
-
     - name: Executar testes
       run: |
-        ls
         robot -d results teste2.robot
         cp results/output.xml $GITHUB_WORKSPACE/results/
         cp results/log.html $GITHUB_WORKSPACE/results/
-        cp results/report.html $GITHUB_WORKSPACE/results
+        cp results/report.html $GITHUB_WORKSPACE/results/
