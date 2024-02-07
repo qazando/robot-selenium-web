@@ -1,0 +1,47 @@
+Começar mostrando os comandos da lib.
+https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+
+Como utilizar o xpath no nosso teste:
+Clicar em Link de Login
+    Click Element  xpath://a[@href='/login']
+
+Rodando por nome de teste:
+robot --test "Cenário 3: Testando valor no teste" teste.robot
+
+Rodando por tag:
+robot --include Teste3 teste.robot
+
+Rodando excluindo uma tag:
+robot --exclude Teste3 teste.robot
+
+================ Variavel nos testes: ============
+${SITE_URL}  https://automationpratice.com.br/
+
+*** Keywords ***
+Abrir Site Herbert
+    Open Browser  ${SITE_URL_HERBERT}  chrome
+
+================ Argumento nos testes: ============
+Abrir esse site
+    [Arguments]  ${url}
+    Open Browser  ${url}  chrome
+
+Cenário 3: Testando valor no teste
+    [Tags]  Teste3
+    Abrir esse site  https://automationpratice.com.br/  
+
+================ Assert: ============
+
+Validar Login Realizado
+    ${actual_text}=  Get Text  xpath://h2[@class='swal2-title']
+    Should Be Equal As Strings  ${actual_text}  Login realizado
+
+** Test Cases **
+Cenário 1: Logar com sucesso
+   Acessar site da qazando
+   Aguardar site carregar
+   Digitar Email
+   Digitar Senha
+   Clicar em login
+   Aguardar site carregar
+   Validar Login Realizado

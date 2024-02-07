@@ -1,0 +1,24 @@
+name: Testes com Robot Framework e SeleniumLibrary
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Instalar dependências
+      run: |
+        pip install -r requirements.txt  # Certifique-se de ter um arquivo requirements.txt com suas dependências
+
+    - name: Executar testes
+      run: |
+        robot -d results tests  # Substitua 'tests' pelo diretório onde estão seus casos de teste
