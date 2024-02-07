@@ -22,8 +22,8 @@ jobs:
     - name: Configurar ChromeDriver
       run: |
         CHROMEDRIVER_URL=https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip
-        curl -o /tmp/chromedriver.zip $CHROMEDRIVER_URL
-        unzip /tmp/chromedriver.zip -d $HOME
+        curl -o /tmp/chromedriver-linux64.zip $CHROMEDRIVER_URL
+        unzip /tmp/chromedriver-linux64.zip -d $HOME
         echo "PATH=$HOME:\$PATH" >> $GITHUB_ENV
         export PATH=$HOME:$PATH
         chmod +x $HOME/chromedriver
