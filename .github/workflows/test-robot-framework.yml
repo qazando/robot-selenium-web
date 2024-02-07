@@ -23,7 +23,8 @@ jobs:
       run: |
         CHROMEDRIVER_VERSION=121.0.6167.85
         curl -o /tmp/chromedriver.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip
-        unzip /tmp/chromedriver.zip -d $HOME
+        ls
+        unzip /tmp/chromedriver-linux64.zip -d $HOME
         sudo mv $HOME/chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
 
