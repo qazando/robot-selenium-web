@@ -19,7 +19,7 @@ Abrir esse site
     Open Browser  ${url}  headlesschrome
 
 Esperar Página Carregar
-    Sleep  3s
+    Sleep  10s
 
 Clicar em Link de Login
     Click Element  xpath://a[@href='/login']
