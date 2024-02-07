@@ -21,12 +21,12 @@ jobs:
 
     - name: Configurar ChromeDriver
       run: |
-        CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        CHROMEDRIVER_VERSION=121.0.6167.139
         curl -o /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip /tmp/chromedriver.zip -d $HOME
         sudo mv $HOME/chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
-        
+
     - name: Executar testes
       run: |
         ls
