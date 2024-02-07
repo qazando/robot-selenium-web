@@ -10,26 +10,27 @@ jobs:
     - name: Checkout do código
       uses: actions/checkout@v2
 
-    - name: Configurar ChromeDriver e Chrome
-      run: |
-        apt-get update && apt-get install -y wget curl unzip
-        wget http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_100.0.4896.127-1_amd64.deb
-        apt-get -y install ./google-chrome-stable_100.0.4896.127-1_amd64.deb
-        google-chrome-stable --version
-
-        # Instala o ChromeDriver versão 110
-        wget "https://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_linux64.zip" -O chromedriver.zip
-        unzip -d chromedriver chromedriver.zip
-        chmod +x chromedriver/chromedriver
-        mv chromedriver/chromedriver /usr/local/bin/
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
 
     - name: Instalar dependências
       run: |
         pip install -r requirements.txt
 
+    - name: Configurar ChromeDriver
+      run: |
+        CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        curl -o /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        unzip /tmp/chromedriver.zip -d $HOME
+        sudo mv $HOME/chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
+        
     - name: Executar testes
       run: |
+        ls
         robot -d results teste2.robot
         cp results/output.xml $GITHUB_WORKSPACE/results/
         cp results/log.html $GITHUB_WORKSPACE/results/
-        cp results/report.html $GITHUB_WORKSPACE/results/
+        cp results/report.html $GITHUB_WORKSPACE/results
