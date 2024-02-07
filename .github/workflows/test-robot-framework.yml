@@ -17,8 +17,8 @@ jobs:
 
     - name: Instalar dependências
       run: |
-        pip install -r requirements.txt  # Certifique-se de ter um arquivo requirements.txt com suas dependências
+        pip install -r requirements.txt
 
     - name: Executar testes
       run: |
-        robot -d results tests  # Substitua 'tests' pelo diretório onde estão seus casos de teste
+        robot -d results teste2.robot
