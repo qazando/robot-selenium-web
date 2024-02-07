@@ -37,7 +37,6 @@ jobs:
 
     - name: Executar testes
       run: |
-        ls
         robot -d results teste2.robot
         cp results/output.xml $GITHUB_WORKSPACE/results/
         cp results/log.html $GITHUB_WORKSPACE/results/
