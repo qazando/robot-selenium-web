@@ -14,9 +14,11 @@ jobs:
       with:
         robot_reports_dir: 'robot_tests'
 
-    - name: Executar testes
-      run: |
-        robot -d results teste2.robot
-        cp results/output.xml $GITHUB_WORKSPACE/results/
-        cp results/log.html $GITHUB_WORKSPACE/results/
-        cp results/report.html $GITHUB_WORKSPACE/results
+    - name: Upload Test Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: robot-reports
+        path: |
+          /opt/robotframework/reports/output.xml
+          /opt/robotframework/reports/log.html
+          /opt/robotframework/reports/report.html
