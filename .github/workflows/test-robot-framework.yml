@@ -7,37 +7,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout do código
-      uses: actions/checkout@v2
-
-    - name: Configurar Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
-
-    - name: Instalar dependências
-      run: |
-        pip install -r requirements.txt
-
-    - name: Instalar Google Chrome
-      run: |
-        CHROME_VERSION=100.0.4896.127
-        wget http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb
-        sudo dpkg -i google-chrome-stable_${CHROME_VERSION}-1_amd64.deb
-        sudo apt-get -f install
-
-    - name: Configurar ChromeDriver
-      run: |
-        CHROMEDRIVER_VERSION=100.0.4896.20
-        curl -o /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
-        unzip /tmp/chromedriver.zip -d $HOME
-        echo "PATH=$HOME:\$PATH" >> $GITHUB_ENV
-        export PATH=$HOME:$PATH
-        chmod +x $HOME/chromedriver
+    - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
 
     - name: Executar testes
       run: |
-        robot -d results teste3.robot
+        robot -d results teste2.robot
         cp results/output.xml $GITHUB_WORKSPACE/results/
         cp results/log.html $GITHUB_WORKSPACE/results/
         cp results/report.html $GITHUB_WORKSPACE/results
