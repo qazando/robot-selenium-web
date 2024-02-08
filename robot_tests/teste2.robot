@@ -9,14 +9,14 @@ ${USUARIO_SENHA}  123456
 
 *** Keywords ***
 Abrir Site Herbert
-    Open Browser  ${SITE_URL_HERBERT}  headlesschrome
+    Open Browser  ${SITE_URL_HERBERT}  chrome
 
 Abrir Site
-    Open Browser  ${SITE_URL}  headlesschrome
+    Open Browser  ${SITE_URL}  chrome
 
 Abrir esse site
     [Arguments]  ${url}
-    Open Browser  ${url}  headlesschrome
+    Open Browser  ${url}  chrome
 
 Esperar Página Carregar
     Sleep  10s
