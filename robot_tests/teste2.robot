@@ -61,15 +61,3 @@ Cenário 2: Testando Robot
     Clicar em Botão de Login
     Esperar Página Carregar
     Verificar texto login realizado
-
-Cenário 3: Testando valor no teste
-    [Tags]  Teste3
-    Abrir esse site  https://automationpratice.com.br/  
-    Esperar Página Carregar
-    Clicar em Link de Login
-    Esperar Página Carregar
-    Preencher Campo de E-mail
-    Preencher Campo de Senha
-    Clicar em Botão de Login
-    Esperar Página Carregar
-    Verificar texto login realizado
