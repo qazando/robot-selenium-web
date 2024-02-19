@@ -16,7 +16,7 @@ jobs:
         robot_reports_dir: 'robot_tests'
       
     - name: Executar testes
-      run: cd robot_tests
+      run: cd robot_tests & ls
 
     - name: Executar testes 2
       run: ls
