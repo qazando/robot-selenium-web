@@ -26,4 +26,4 @@ jobs:
       if: always()
       with:
         name: robot-reports
-        path: reports
+        path: robot_tests
