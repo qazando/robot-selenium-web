@@ -27,3 +27,5 @@ jobs:
       with:
         name: robot-reports
         path: robot_tests
+        exclude: |
+          find robot_tests -type f ! -name '*.robot'
