@@ -13,12 +13,9 @@ jobs:
       uses: joonvena/robotframework-docker-action@v1.0
       with:
         robot_reports_dir: 'robot_tests'
-
-    - name: Upload Test Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: robot-reports
-        path: |
-          /opt/robotframework/reports/output.xml
-          /opt/robotframework/reports/log.html
-          /opt/robotframework/reports/report.html
+    - name: Upload test results
+      uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: reports
+          path: reports
