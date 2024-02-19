@@ -14,6 +14,8 @@ jobs:
       uses: joonvena/robotframework-docker-action@v1.0
       with:
         robot_reports_dir: 'robot_tests'
+      
+    - name: Executar testes
       run: ls
 
     - name: Upload test results
