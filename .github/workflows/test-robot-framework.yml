@@ -16,10 +16,11 @@ jobs:
         robot_reports_dir: 'robot_tests'
       
     - name: Executar testes
-      run: 
-        - cd robot_tests
-        - ls
-        
+      run: cd robot_tests
+
+    - name: Executar testes 2
+      run: ls
+
     - name: Upload test results
       uses: actions/upload-artifact@v2
       if: always()
