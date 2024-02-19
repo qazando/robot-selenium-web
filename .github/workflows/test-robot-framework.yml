@@ -9,13 +9,15 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+      
     - name: Robot Framework
       uses: joonvena/robotframework-docker-action@v1.0
       with:
         robot_reports_dir: 'robot_tests'
+
     - name: Upload test results
       uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: reports
-          path: reports
+      if: always()
+      with:
+        name: reports
+        path: reports
