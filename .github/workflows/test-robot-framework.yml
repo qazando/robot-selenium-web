@@ -23,4 +23,4 @@ jobs:
       if: always()
       with:
         name: reports
-        path: opt/robotframework/reports/report.html
+        path: /opt/robotframework/reports/report.html
