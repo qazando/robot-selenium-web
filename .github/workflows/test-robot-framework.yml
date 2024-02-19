@@ -19,8 +19,8 @@ jobs:
       run: ls
 
     - name: Upload test results
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       if: always()
       with:
-        name: reports
+        name: robot-reports
         path: /opt/robotframework/reports/report.html
