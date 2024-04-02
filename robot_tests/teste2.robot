@@ -3,6 +3,7 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${SITE_URL}  https://automationpratice.com.br/
+${SITE_ERRADO}  https://automationpr
 ${SITE_URL_HERBERT}  https://www.google.com/
 ${USUARIO_EMAIL}  qazando@gmail.com
 ${USUARIO_SENHA}  123456
@@ -12,6 +13,9 @@ Abrir Site Herbert
     Open Browser  ${SITE_URL_HERBERT}  chrome
 
 Abrir Site
+    Open Browser  ${SITE_URL}  chrome
+
+Abrir Endereco Errado
     Open Browser  ${SITE_URL}  chrome
 
 Abrir esse site
@@ -35,10 +39,10 @@ Clicar em Botão de Login
 
 Verificar texto login realizado
     ${texto_atual}  Get Text  id:swal2-title
-    Should Be Equal As Strings  ${texto_atual}  Login realizado2
+    Should Be Equal As Strings  ${texto_atual}  Login realizado
 
 *** Test Cases ***
-Cenário 1: Acessando o site do Robot
+Cenário 1: Teste de login com sucesso
     [Tags]  Teste1
     Abrir Site
     Esperar Página Carregar
@@ -52,7 +56,7 @@ Cenário 1: Acessando o site do Robot
 
 Cenário 2: Testando Robot
     [Tags]  Teste2
-    Abrir Site
+    Abrir Endereco Errado
     Esperar Página Carregar
     Clicar em Link de Login
     Esperar Página Carregar
