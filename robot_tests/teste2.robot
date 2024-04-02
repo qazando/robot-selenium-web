@@ -16,7 +16,7 @@ Abrir Site
     Open Browser  ${SITE_URL}  chrome
 
 Abrir Endereco Errado
-    Open Browser  ${SITE_URL}  chrome
+    Open Browser  ${SITE_ERRADO}  chrome
 
 Abrir esse site
     [Arguments]  ${url}
