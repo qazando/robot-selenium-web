@@ -13,11 +13,11 @@ jobs:
     - name: Robot Framework
       uses: joonvena/robotframework-docker-action@v1.0
       with:
-        robot_reports_dir: 'robot_tests'
+        robot_reports_dir: 'reports'
       
     - name: Upload test results
       uses: actions/upload-artifact@v2
       if: always()
       with:
         name: robot-reports
-        path: robot_tests
+        path: reports

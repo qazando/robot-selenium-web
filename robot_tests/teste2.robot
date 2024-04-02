@@ -3,6 +3,7 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${SITE_URL}  https://automationpratice.com.br/
+${SITE_ERRADO}  https://automationpr
 ${SITE_URL_HERBERT}  https://www.google.com/
 ${USUARIO_EMAIL}  qazando@gmail.com
 ${USUARIO_SENHA}  123456
@@ -13,6 +14,9 @@ Abrir Site Herbert
 
 Abrir Site
     Open Browser  ${SITE_URL}  chrome
+
+Abrir Endereco Errado
+    Open Browser  ${SITE_ERRADO}  chrome
 
 Abrir esse site
     [Arguments]  ${url}
@@ -38,7 +42,7 @@ Verificar texto login realizado
     Should Be Equal As Strings  ${texto_atual}  Login realizado
 
 *** Test Cases ***
-Cenário 1: Acessando o site do Robot
+Cenário 1: Teste de login com sucesso
     [Tags]  Teste1
     Abrir Site
     Esperar Página Carregar
