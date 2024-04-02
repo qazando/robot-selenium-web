@@ -35,7 +35,7 @@ Clicar em Botão de Login
 
 Verificar texto login realizado
     ${texto_atual}  Get Text  id:swal2-title
-    Should Be Equal As Strings  ${texto_atual}  Login realizado
+    Should Be Equal As Strings  ${texto_atual}  Login realizado2
 
 *** Test Cases ***
 Cenário 1: Acessando o site do Robot
