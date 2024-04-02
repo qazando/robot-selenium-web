@@ -56,7 +56,7 @@ Cenário 1: Teste de login com sucesso
 
 Cenário 2: Testando Robot
     [Tags]  Teste2
-    Abrir Endereco Errado
+    Abrir Site
     Esperar Página Carregar
     Clicar em Link de Login
     Esperar Página Carregar
