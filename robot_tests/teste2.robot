@@ -23,7 +23,7 @@ Abrir esse site
     Open Browser  ${url}  chrome
 
 Esperar Página Carregar
-    Sleep  10s
+    Sleep  5s
 
 Clicar em Link de Login
     Click Element  xpath://a[@href='/login']
@@ -56,7 +56,7 @@ Cenário 1: Teste de login com sucesso
 
 Cenário 2: Testando Robot
     [Tags]  Teste2
-    Abrir Site
+    Abrir Endereco Errado
     Esperar Página Carregar
     Clicar em Link de Login
     Esperar Página Carregar
