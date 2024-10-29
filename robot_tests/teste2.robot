@@ -23,7 +23,7 @@ Abrir esse site
     Open Browser  ${url}  chrome
 
 Esperar Página Carregar
-    Sleep  10s
+    Sleep  3s
 
 Clicar em Link de Login
     Click Element  xpath://a[@href='/login']
