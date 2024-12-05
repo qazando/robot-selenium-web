@@ -1,4 +1,4 @@
-name: Testes com Robot Framework e SeleniumLibrary
+name: Teste por Push ou PR
 
 on: [push, pull_request]
 

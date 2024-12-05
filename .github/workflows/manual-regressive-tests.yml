@@ -1,4 +1,4 @@
-name: Testes com Robot Framework e SeleniumLibrary
+name: Teste Regressivo
 
 on:
   workflow_dispatch:
