@@ -54,7 +54,7 @@ Cenário 1: Teste de login com sucesso
     Esperar Página Carregar
     Verificar texto login realizado
 
-Cenário 2: Testando Robot
+Cenário 2: Testando Robot 2
     [Tags]  Teste2
     Abrir Site
     Esperar Página Carregar
